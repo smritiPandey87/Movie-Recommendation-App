@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self';"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Movie-Recommendation-App</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-left">
+        <div class="logo-container">
+          <img src="assests/ZEE5_logo.svg" />
+        </div>
+      </div>
+      <div class="nav-center">
+        <div class="search-container">
+          <div class="img-icon">
+            <img src="assests/seach.png" />
+          </div>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for Movies,Shows,Channels etc..."
+          />
+          <i class="fas fa-search" id="searchIcon"></i>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div id="login-container">
+          <span class="login">
+            <span id="log">LOGIN</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <script src="src/script.js"></script>
+  </body>
+</html>

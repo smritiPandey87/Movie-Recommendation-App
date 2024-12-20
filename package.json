@@ -1,15 +1,18 @@
 {
   "name": "movie-recommendation-app",
   "version": "1.0.0",
-  "main": "/src/script.js",
+  "description": "A movie recommendation app built using HTML, CSS, and JavaScript.",
+  "main": "index.html",
   "scripts": {
-    "start": "live-server ./src/index.html"
-
+    "start": "live-server ./"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "movies",
+    "recommendation",
+    "web-app"
+  ],
+  "author": "Your Name",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "live-server": "^1.2.2"
   }
