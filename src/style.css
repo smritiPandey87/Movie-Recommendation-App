@@ -8,14 +8,13 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Header Styling */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #0f0617;
   color: #fff;
-  padding: 14px 32px;;
+  padding: 14px 32px;
 }
 
 .nav-left {
@@ -33,7 +32,6 @@ header {
   position: relative;
 }
 
-/* Search Icon on the left inside the search bar */
 .img-icon img {
   width: 20px;
   height: 20px;
@@ -43,7 +41,6 @@ header {
   transform: translateY(-50%);
 }
 
-/* Search Input */
 .search-container {
   position: relative;
   width: 100%;
@@ -61,7 +58,6 @@ header {
   background-color: #222;
   color: #fff;
   border: 1px solid white;
-  
 }
 
 #searchIcon {
@@ -95,8 +91,8 @@ header {
   cursor: pointer;
   text-decoration: none;
   font-family: NotoSansBold, sans-serif;
-  
-    font-weight: 669;
+
+  font-weight: 669;
 }
 
 /* #log:hover {
@@ -105,10 +101,19 @@ header {
 } */
 #login-container:hover {
   background-color: #fff;
-  color: rgb(12, 12, 12); 
-
-  
+  color: rgb(12, 12, 12);
 }
 #login-container:hover #log {
-  color: rgb(15, 15, 15); 
+  color: rgb(15, 15, 15);
+  text-decoration: none;
+}
+#log-link {
+  text-decoration: none; 
+  color: inherit; 
+  display: block;
+  transition: color 0.3s ease; 
+}
+
+#log-link:hover {
+  color: white; 
 }
