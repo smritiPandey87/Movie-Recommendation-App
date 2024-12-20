@@ -4,7 +4,7 @@
   "description": "A movie recommendation app built using HTML, CSS, and JavaScript.",
   "main": "index.html",
   "scripts": {
-    "start": "live-server ./"
+    "start": "live-server"
   },
   "keywords": [
     "movies",
