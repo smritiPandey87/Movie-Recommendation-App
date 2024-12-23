@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self';"
-    />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline';"
+      content="
+      default-src 'self' https://www.omdbapi.com; 
+      img-src 'self' https://m.media-amazon.com https://*.amazonaws.com data:; 
+      script-src 'self' 'unsafe-inline'; 
+      connect-src 'self' https://www.omdbapi.com;"
     />
 
     <link rel="stylesheet" href="index.css" />
@@ -48,8 +48,16 @@
     </header>
     <h2>Trending Near You</h2>
 
-    <div id="movieContainer"></div>
+    <div id="movie-list" class="movie-list"></div>
+    <div class="movie-card">
+      <img
+        src="https://m.media-amazon.com/images/M/MV5BNDA3YzcwY2YtMGFmOC00OWEzLTgyOTAtZDNlNTdiODQ1MjgxXkEyXkFqcGc@._V1_SX300.jpg"
+        alt="Movie Title"
+      />
+      <!-- <h3>Movie Title</h3>
+      <p>2024</p> -->
+    </div>
 
-    <script type="module" src="index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

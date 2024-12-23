@@ -58,7 +58,7 @@ header {
   font-size: 13px;
   background-color: #222;
   color: #fff;
-  border: 1px solid #686363;;
+  border: 1px solid #686363;
 }
 
 #searchIcon {
@@ -220,6 +220,33 @@ body h2 {
 
 .share-btn:hover {
   background-color: #717571;
+}**/
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
 }
 
- 
+.movie-card {
+  border: 0px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  width: 255px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  color: white;
+  height: 317px;
+}
+
+.movie-card img {
+  width: 104%;
+  height: 104%;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  border: 1px solid #ccc;
+}

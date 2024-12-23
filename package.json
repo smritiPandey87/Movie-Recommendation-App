@@ -6,6 +6,8 @@
   "scripts": {
     "start": "live-server"
   },
+  
+  
   "keywords": [
     "movies",
     "recommendation",
