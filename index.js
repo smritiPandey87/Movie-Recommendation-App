@@ -2,6 +2,10 @@
 //   .then((response) => response.json())
 //   .then((data) => console.log(data))
 //   .catch((error) => console.error(error));
+const searchIcon = document.getElementById("searchIcon");
+const searchContainer = document.querySelector(".search-container");
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const movieListContainer = document.getElementById("movie-list");
