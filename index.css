@@ -214,3 +214,53 @@ body h2 {
   background-color: #b430e3;
   color: #fff;
 }
+
+/* Pagination Container */
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+
+.pagination-btn {
+  background-color: #121212;
+  color: #df50eb;
+
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Disabled Button Style */
+ .pagination-btn[disabled] {
+  background-color: #6c757d; /* Grey background */
+ cursor: not-allowed;
+} 
+
+
+/* Hover and Focus Effects */
+.pagination-btn:not([disabled]):hover,
+.pagination-btn:not([disabled]):focus {
+  background-color: #0056b3; /* Darker blue on hover */
+  outline: none;
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.prev-btn,
+.next-btn {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Current Page Highlight */
+.pagination-btn[disabled] {
+  background-color: #28a745; /* Green background for the active page */
+  color: white;
+  font-weight: bold;
+}
