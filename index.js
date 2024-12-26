@@ -5,8 +5,6 @@
 const searchIcon = document.getElementById("searchIcon");
 const searchContainer = document.querySelector(".search-container");
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const movieListContainer = document.getElementById("movie-list");
 
@@ -70,3 +68,21 @@ document.addEventListener("DOMContentLoaded", () => {
       movieListContainer.innerHTML = `<p>Failed to load movies. Please try again later.</p>`;
     });
 });
+
+const searchInput = document.getElementById("searchInput");
+
+function debounce(func, delay) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+function handleSearch(event) {
+  console.log(`Searching for: ${event.target.value}`);
+}
+
+const debouncedSearch = debounce(handleSearch, 100);
+
+searchInput.addEventListener("input", debouncedSearch);
