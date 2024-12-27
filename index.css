@@ -52,16 +52,32 @@ header {
 #searchInput {
   width: 318px;
   padding: 13px 36px;
-
   border: 1px solid #ccc;
   border-radius: 3px;
   font-size: 13px;
-  background-color: #222;
+  background-color: #000;
   color: #fff;
   border: 1px solid #686363;
+  transition: width 0.3s ease, padding 0.3s ease;
 }
 
+#searchInput:focus {
+  outline: none;
+  width: 400px;
+  padding: 13px 50px;
+  transform: translateX(-100px);
+  border: 2px solid #b430e3;
+}
 #searchIcon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+}
+#searchIcon:hover {
   position: absolute;
   top: 50%;
   right: 10px;
@@ -224,7 +240,6 @@ body h2 {
   gap: 10px;
 }
 
-
 .pagination-btn {
   background-color: #121212;
   color: #df50eb;
@@ -238,18 +253,17 @@ body h2 {
 }
 
 /* Disabled Button Style */
- .pagination-btn[disabled] {
+.pagination-btn[disabled] {
   background-color: #6c757d; /* Grey background */
- cursor: not-allowed;
-} 
-
+  cursor: not-allowed;
+}
 
 /* Hover and Focus Effects */
 .pagination-btn:not([disabled]):hover,
 .pagination-btn:not([disabled]):focus {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3;
   outline: none;
-  transform: scale(1.05); /* Slight zoom effect */
+  transform: scale(1.05);
 }
 
 .prev-btn,
@@ -258,9 +272,33 @@ body h2 {
   text-transform: uppercase;
 }
 
-/* Current Page Highlight */
 .pagination-btn[disabled] {
-  background-color: #28a745; /* Green background for the active page */
+  background-color: #28a745;
   color: white;
   font-weight: bold;
+}
+
+.carousel {
+  height: 464px;
+  width: 62%;
+  position: relative;
+  background: white;
+  overflow-x: auto;
+  margin-left: 303px;
+  display: flex;
+}
+
+.carouselBox {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.carouselBox .slider-item {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.carouselBox img {
+  width: 100%;
+  height: 462px;
 }

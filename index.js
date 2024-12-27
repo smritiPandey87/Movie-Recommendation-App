@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setupPagination(query, totalResults, currentPage) {
     const totalPages = Math.ceil(totalResults / 10);
-    const maxVisiblePages = 5;
+    const maxVisiblePages = 8;
     const startPage = Math.max(
       1,
       currentPage - Math.floor(maxVisiblePages / 2)
@@ -136,4 +136,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const debouncedSearch = debounce(handleSearch, 500);
   searchInput.addEventListener("input", debouncedSearch);
+});
+
+const sliders = document.querySelector(".carouselBox");
+var scrollPerClick;
+var ImagePadding = 20;
+
+showMovieData();
+
+async function showMovieData() {
+  const api_key = "183d627f";
+
+  
+  const response = await fetch(
+    `https://www.omdbapi.com/?apikey=${api_key}&s=action&page=1`
+  );
+  const result = await response.json(); 
+
+ 
+  result.Search.map(function (cur, index) {
+    
+    const container = document.createElement("div");
+    container.classList.add("slider-item");
+
+    
+    const image = document.createElement("img");
+    image.classList.add(`img-${index}`, "slider-img");
+    image.src = cur.Poster;
+    image.alt = "Movie Poster";
+
+    
+    container.appendChild(image);
+
+    
+    sliders.appendChild(container);
+  });
+
+
+  scrollPerClick = document.querySelector(".img-0").clientWidth + ImagePadding; }
+
+
+document.querySelector("#scroll-right").addEventListener("click", function () {
+  sliders.scrollLeft += scrollPerClick;
+});
+
+document.querySelector("#scroll-left").addEventListener("click", function () {
+  sliders.scrollLeft -= scrollPerClick;
 });
