@@ -231,7 +231,6 @@ body h2 {
   color: #fff;
 }
 
-/* Pagination Container */
 #pagination {
   display: flex;
   justify-content: center;
@@ -252,13 +251,11 @@ body h2 {
   transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Disabled Button Style */
 .pagination-btn[disabled] {
-  background-color: #6c757d; /* Grey background */
+  background-color: #6c757d;
   cursor: not-allowed;
 }
 
-/* Hover and Focus Effects */
 .pagination-btn:not([disabled]):hover,
 .pagination-btn:not([disabled]):focus {
   background-color: #0056b3;
@@ -280,11 +277,11 @@ body h2 {
 
 .carousel {
   height: 464px;
-  width: 62%;
+  width: 81%;
   position: relative;
-  background: white;
+  background: #0f0617;
   overflow-x: auto;
-  margin-left: 303px;
+  margin-left: 94px;
   display: flex;
 }
 
@@ -294,11 +291,12 @@ body h2 {
 }
 
 .carouselBox .slider-item {
-  width: 100%;
+  width: 109%;
   flex-shrink: 0;
 }
 
 .carouselBox img {
-  width: 100%;
-  height: 462px;
+  width: 92%;
+  height: 464px;
 }
+

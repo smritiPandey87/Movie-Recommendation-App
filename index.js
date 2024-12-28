@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                  <p>${movie.Title}</p>
                  <button class="watch-btn" data-title="${movie.Title}">Watch</button>
                  <button class="share-btn" data-title="${movie.Title}">Share</button>
+
               </div>
             `;
 
@@ -140,41 +141,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const sliders = document.querySelector(".carouselBox");
 var scrollPerClick;
-var ImagePadding = 20;
+var ImagePadding = 5;
 
 showMovieData();
 
 async function showMovieData() {
   const api_key = "183d627f";
 
-  
   const response = await fetch(
     `https://www.omdbapi.com/?apikey=${api_key}&s=action&page=1`
   );
-  const result = await response.json(); 
+  const result = await response.json();
 
- 
   result.Search.map(function (cur, index) {
-    
     const container = document.createElement("div");
     container.classList.add("slider-item");
 
-    
     const image = document.createElement("img");
     image.classList.add(`img-${index}`, "slider-img");
     image.src = cur.Poster;
     image.alt = "Movie Poster";
 
-    
     container.appendChild(image);
 
-    
     sliders.appendChild(container);
   });
 
-
-  scrollPerClick = document.querySelector(".img-0").clientWidth + ImagePadding; }
-
+  scrollPerClick = document.querySelector(".img-0").clientWidth + ImagePadding;
+}
 
 document.querySelector("#scroll-right").addEventListener("click", function () {
   sliders.scrollLeft += scrollPerClick;
@@ -183,3 +177,4 @@ document.querySelector("#scroll-right").addEventListener("click", function () {
 document.querySelector("#scroll-left").addEventListener("click", function () {
   sliders.scrollLeft -= scrollPerClick;
 });
+
