@@ -13,6 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const API_KEY = "183d627f";
   const DEFAULT_QUERY = "action";
 
+  function addToWatchlist(movie) {
+    let watchlistArr = JSON.parse(localStorage.getItem("watchlistItems")) || [];
+
+    const isAlreadyInWatchlist = watchlistArr.some(
+      (item) => item.imdbID === movie.imdbID
+    );
+
+    if (isAlreadyInWatchlist) {
+      alert("This movie is already in your watchlist.");
+    } else {
+      watchlistArr.push(movie);
+      localStorage.setItem("watchlistItems", JSON.stringify(watchlistArr));
+      alert("Movie added to your watchlist!");
+    }
+  }
+
   closeModal.addEventListener("click", () => {
     movieModal.style.display = "none";
   });
@@ -53,6 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
                  
               </div>
             `;
+            card.querySelector(".watchlist-icon");
+            card.addEventListener("click", () => {
+              addToWatchlist(movie);
+            });
+
+            card.addEventListener("click", () => {
+              fetchMovieDetails(movie.imdbID);
+            });
 
             card.addEventListener("click", () => {
               fetchMovieDetails(movie.imdbID);
@@ -199,6 +223,3 @@ document.querySelector("#scroll-right").addEventListener("click", function () {
 document.querySelector("#scroll-left").addEventListener("click", function () {
   sliders.scrollLeft -= scrollPerClick;
 });
-
-
-

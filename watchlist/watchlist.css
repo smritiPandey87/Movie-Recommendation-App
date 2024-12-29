@@ -1,1 +1,36 @@
-
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+.watchlist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.watchlist-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.watchlist-item img {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+}
+.remove-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.remove-btn:hover {
+  background-color: darkred;
+}
