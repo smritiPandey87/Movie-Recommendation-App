@@ -223,3 +223,31 @@ document.querySelector("#scroll-right").addEventListener("click", function () {
 document.querySelector("#scroll-left").addEventListener("click", function () {
   sliders.scrollLeft -= scrollPerClick;
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const loggedInUser = localStorage.getItem("loggedInUser");
+
+  const loginContainer = document.getElementById("login-container");
+
+  if (isLoggedIn && loginContainer) {
+    loginContainer.innerHTML = `
+      <span>Welcome, ${loggedInUser}</span>
+      <a href="#" id="logout">Log Out</a>
+    `;
+
+    const logoutLink = document.getElementById("logout-link");
+    logoutLink.addEventListener("click", () => {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("loggedInUser");
+
+      loginContainer.innerHTML = `
+        <a href="login/login.html">Log In</a>
+      `;
+    });
+  } else if (loginContainer) {
+    loginContainer.innerHTML = `
+      <a href="login/login.html">Log In</a>
+    `;
+  }
+});

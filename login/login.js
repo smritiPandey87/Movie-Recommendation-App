@@ -1,15 +1,27 @@
-const emailInput = document.getElementById("email");
-const loginButton = document.getElementById("login-button");
+document.addEventListener("DOMContentLoaded", () => {
+  const loginButton = document.getElementById("login-button");
+  const emailInput = document.getElementById("email");
 
-loginButton.addEventListener("click", () => {
-  const userInput = emailInput.value.trim();
+  loginButton.addEventListener("click", () => {
+    const email = emailInput.value.trim();
 
-  if (userInput) {
-    localStorage.setItem("userInput", userInput);
+    
+    if (!email || !validateEmail(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
 
-    console.log("Stored Input:", userInput);
-    alert(`Welcome! Your input (${userInput}) has been stored.`);
-  } else {
-    alert("Please enter an email or mobile number.");
+   
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("loggedInUser", email);
+
+    // Redirect to main page
+    alert("Login successful!");
+    window.location.href = "../index.html"; 
+  });
+
+  function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 });
