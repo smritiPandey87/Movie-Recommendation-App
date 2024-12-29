@@ -42,14 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             card.innerHTML = `
               <img src="${posterUrl}" alt="${movie.Title}" />
+              
               <div class="card-actions">
                  <p>${movie.Title}</p>
+                 <button class="watchlist-icon" data-id="${movie.imdbID}">
+              &#9733; 
+             </button>
                  <button class="watch-btn" data-title="${movie.Title}">Watch</button>
                  <button class="share-btn" data-title="${movie.Title}">Share</button>
+                 
               </div>
             `;
 
-            
             card.addEventListener("click", () => {
               fetchMovieDetails(movie.imdbID);
             });
@@ -81,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p><strong>Actors:</strong> ${movie.Actors}</p>
             <p><strong>Plot:</strong> ${movie.Plot}</p>
             <img src="${movie.Poster}" alt="${movie.Title}" />
+           1
           `;
           movieModal.style.display = "block";
         } else {
@@ -194,3 +199,6 @@ document.querySelector("#scroll-right").addEventListener("click", function () {
 document.querySelector("#scroll-left").addEventListener("click", function () {
   sliders.scrollLeft -= scrollPerClick;
 });
+
+
+

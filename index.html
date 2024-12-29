@@ -22,6 +22,7 @@
           <img src="assests/ZEE5_logo.svg" />
         </div>
       </div>
+
       <div class="nav-center">
         <div class="search-container">
           <div class="img-icon">
@@ -37,6 +38,14 @@
       </div>
 
       <div class="nav-right">
+        <div id="watchlist-container">
+          <div id="watchlist">
+            <a href="watchlist/watchlist.html" id="watchlist-link">
+              <h4>Watchlist</h4>
+            </a>
+          </div>
+        </div>
+
         <div id="login-container">
           <a href="login/login.html" id="log-link">
             <span class="login">
@@ -56,14 +65,13 @@
     <div id="movie-list" class="movie-list"></div>
     <div id="pagination"></div>
 
-    
     <div id="movieModal" class="modal">
       <div class="modal-content">
         <span class="close-modal">&times;</span>
         <div id="movieDetails"></div>
       </div>
     </div>
-    
+    <div id="watchlist"></div>
 
     <script src="index.js"></script>
   </body>

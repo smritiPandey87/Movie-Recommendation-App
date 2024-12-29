@@ -45,7 +45,7 @@ header {
 .search-container {
   position: relative;
   width: 100%;
-  margin-left: 803px;
+  margin-left: 554px;
   margin-right: -19px;
 }
 
@@ -91,6 +91,7 @@ header {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  gap: 2px;
 }
 
 #login-container {
@@ -98,7 +99,7 @@ header {
   padding: 8px;
   border-radius: 7px;
   border: 2px solid white;
-  margin-right: 75px;
+  margin-right: 37px;
 }
 
 #log {
@@ -128,6 +129,10 @@ header {
 
 #log-link:hover {
   color: white;
+}
+#watchlist-link {
+  text-decoration: none;
+  font-size: 27px;
 }
 body h2 {
   color: #fff;
@@ -301,23 +306,25 @@ body h2 {
 }
 
 #movieModal {
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%;  /* Enable scroll if needed */
+  width: 100%;
+  height: 100%;
 }
 
 .modal-content {
   background-color: #1c1c1e;
-  margin: 10% auto;
+  margin: 2cqmax auto;
   padding: 20px;
   z-index: 2;
   border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
+  height: 82%;
+  margin-top: 20px;
+  width: 47%;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.3s ease;
 }
@@ -336,13 +343,13 @@ body h2 {
   text-decoration: none;
 }
 
-
 #movieDetails {
   text-align: center;
+  overflow-y: auto;
 }
 
 #movieDetails img {
-  max-width: 100%;
+  width: 34%;
   height: auto;
   margin: 15px 0;
   border-radius: 10px;
@@ -358,4 +365,24 @@ body h2 {
   margin: 5px 0;
   color: #555;
   font-size: 16px;
+}
+.watchlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: gold;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watchlist-icon:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
