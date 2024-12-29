@@ -300,3 +300,62 @@ body h2 {
   height: 464px;
 }
 
+#movieModal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;  /* Enable scroll if needed */
+}
+
+.modal-content {
+  background-color: #1c1c1e;
+  margin: 10% auto;
+  padding: 20px;
+  z-index: 2;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+
+#movieDetails {
+  text-align: center;
+}
+
+#movieDetails img {
+  max-width: 100%;
+  height: auto;
+  margin: 15px 0;
+  border-radius: 10px;
+}
+
+#movieDetails h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#movieDetails p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 16px;
+}

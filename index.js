@@ -7,8 +7,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const movieListContainer = document.getElementById("movie-list");
   const searchInput = document.getElementById("searchInput");
   const paginationContainer = document.getElementById("pagination");
+  const movieModal = document.getElementById("movieModal");
+  const movieDetails = document.getElementById("movieDetails");
+  const closeModal = document.querySelector(".close-modal");
   const API_KEY = "183d627f";
   const DEFAULT_QUERY = "action";
+
+  closeModal.addEventListener("click", () => {
+    movieModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target === movieModal) {
+      movieModal.style.display = "none";
+    }
+  });
 
   function fetchAndDisplayMovies(query, page = 1) {
     fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&page=${page}`)
@@ -33,38 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
                  <p>${movie.Title}</p>
                  <button class="watch-btn" data-title="${movie.Title}">Watch</button>
                  <button class="share-btn" data-title="${movie.Title}">Share</button>
-
               </div>
             `;
+
+            
+            card.addEventListener("click", () => {
+              fetchMovieDetails(movie.imdbID);
+            });
 
             movieListContainer.appendChild(card);
           });
 
           setupPagination(query, data.totalResults, page);
-
-          document.querySelectorAll(".watch-btn").forEach((button) => {
-            button.addEventListener("click", (e) => {
-              const movieTitle = e.target.getAttribute("data-title");
-              alert(`Now watching: ${movieTitle}`);
-            });
-          });
-
-          document.querySelectorAll(".share-btn").forEach((button) => {
-            button.addEventListener("click", (e) => {
-              const movieTitle = e.target.getAttribute("data-title");
-              const shareUrl = `https://www.omdbapi.com/?t=${encodeURIComponent(
-                movieTitle
-              )}`;
-              navigator.clipboard
-                .writeText(`Check out this movie: ${movieTitle} - ${shareUrl}`)
-                .then(() => {
-                  alert("Movie link copied to clipboard!");
-                })
-                .catch((err) => {
-                  console.error("Failed to copy text: ", err);
-                });
-            });
-          });
         } else {
           movieListContainer.innerHTML = `<p>No movies found.</p>`;
         }
@@ -72,6 +65,30 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => {
         console.error("Error fetching movies:", error);
         movieListContainer.innerHTML = `<p>Failed to load movies. Please try again later.</p>`;
+      });
+  }
+
+  function fetchMovieDetails(imdbID) {
+    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`)
+      .then((response) => response.json())
+      .then((movie) => {
+        if (movie.Response === "True") {
+          movieDetails.innerHTML = `
+            <h2>${movie.Title}</h2>
+            <p><strong>Year:</strong> ${movie.Year}</p>
+            <p><strong>Genre:</strong> ${movie.Genre}</p>
+            <p><strong>Director:</strong> ${movie.Director}</p>
+            <p><strong>Actors:</strong> ${movie.Actors}</p>
+            <p><strong>Plot:</strong> ${movie.Plot}</p>
+            <img src="${movie.Poster}" alt="${movie.Title}" />
+          `;
+          movieModal.style.display = "block";
+        } else {
+          alert("Movie details not found!");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching movie details:", error);
       });
   }
 
@@ -177,4 +194,3 @@ document.querySelector("#scroll-right").addEventListener("click", function () {
 document.querySelector("#scroll-left").addEventListener("click", function () {
   sliders.scrollLeft -= scrollPerClick;
 });
-
