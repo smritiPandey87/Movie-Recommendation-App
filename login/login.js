@@ -5,19 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
   loginButton.addEventListener("click", () => {
     const email = emailInput.value.trim();
 
-    
     if (!email || !validateEmail(email)) {
       alert("Please enter a valid email address.");
       return;
     }
 
-   
     localStorage.setItem("isLoggedIn", "true");
     localStorage.setItem("loggedInUser", email);
 
     // Redirect to main page
     alert("Login successful!");
-    window.location.href = "../index.html"; 
+    window.location.href = "../index.html";
   });
 
   function validateEmail(email) {

@@ -29,9 +29,9 @@ body h1 {
 }
 
 .watchlist-item img {
-  width: 100px;
+  width: 226px;
   height: 300px;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .remove-btn {

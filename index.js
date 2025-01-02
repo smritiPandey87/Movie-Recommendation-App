@@ -224,30 +224,25 @@ document.querySelector("#scroll-left").addEventListener("click", function () {
   sliders.scrollLeft -= scrollPerClick;
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+function addToWatchlist(movie) {
   const loggedInUser = localStorage.getItem("loggedInUser");
-
-  const loginContainer = document.getElementById("login-container");
-
-  if (isLoggedIn && loginContainer) {
-    loginContainer.innerHTML = `
-      <span>Welcome, ${loggedInUser}</span>
-      <a href="#" id="logout">Log Out</a>
-    `;
-
-    const logoutLink = document.getElementById("logout-link");
-    logoutLink.addEventListener("click", () => {
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("loggedInUser");
-
-      loginContainer.innerHTML = `
-        <a href="login/login.html">Log In</a>
-      `;
-    });
-  } else if (loginContainer) {
-    loginContainer.innerHTML = `
-      <a href="login/login.html">Log In</a>
-    `;
+  if (!loggedInUser) {
+    alert("Please log in to add movies to your watchlist.");
+    return;
   }
-});
+
+  const userWatchlistKey = `watchlist_${loggedInUser}`;
+  let watchlistArr = JSON.parse(localStorage.getItem(userWatchlistKey)) || [];
+
+  const isAlreadyInWatchlist = watchlistArr.some(
+    (item) => item.imdbID === movie.imdbID
+  );
+
+  if (isAlreadyInWatchlist) {
+    alert("This movie is already in your watchlist.");
+  } else {
+    watchlistArr.push(movie);
+    localStorage.setItem(userWatchlistKey, JSON.stringify(watchlistArr));
+    alert("Movie added to your watchlist!");
+  }
+}
